@@ -3,6 +3,7 @@ using System;
 using EntityCore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace entity_core.Migrations
 {
     [DbContext(typeof(ApiDbContext))]
-    partial class ApiDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230412100922_updated contraints")]
+    partial class updatedcontraints
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -146,7 +149,8 @@ namespace entity_core.Migrations
 
             modelBuilder.Entity("EntityCore.Models.Driver", b =>
                 {
-                    b.Navigation("DriverMedia");
+                    b.Navigation("DriverMedia")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("EntityCore.Models.Team", b =>

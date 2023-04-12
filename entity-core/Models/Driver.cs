@@ -8,6 +8,6 @@ public class Driver : BaseEntity
     public string Name { get; set; } = null!;
     public int RacingNumber { get; set; }
     public string FavoriteColor { get; set; } = null!;
-    public virtual Team Team { get; set; } = null!;
-    public virtual DriverMedia DriverMedia { get; set; } = null!;
+    public virtual Team? Team { get; set; } = null!;
+    public virtual DriverMedia? DriverMedia { get; set; }
 }

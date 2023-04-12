@@ -29,5 +29,12 @@ public class ApiDbContext : DbContext
                 .WithOne(d => d.Driver)
                 .HasForeignKey<DriverMedia>(x => x.DriverId);
         });
+
+        modelBuilder.Entity<DriverMedia>(entity => {
+
+            entity.HasOne(dm => dm.Driver)
+                .WithOne(d => d.DriverMedia)
+                .HasForeignKey<DriverMedia>(x => x.DriverId);
+        });
     }
 }
