@@ -19,7 +19,7 @@ public class LeaveRequestsController : ControllerBase
 
     // GET: api/<LeaveRequestsController>
     [HttpGet]
-    public async Task<ActionResult<List<LeaveRequestListDto>>> Get(bool isLoggedInUser = false)
+    public async Task<ActionResult<List<LeaveRequestListDto>>> Get()
     {
         var leaveRequests = await _mediator.Send(new GetLeaveRequestListRequest());
         return Ok(leaveRequests);
